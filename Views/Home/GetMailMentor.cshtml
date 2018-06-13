@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Get mail mentor</title>
+</head>
+
+<body>
+    
+<!-- 
+<h2>Who are you?</h2>
+<br>
+<select id="list" onchange="getSelectValue();">
+  <option value="Mentor1">Mentor1</option>
+  <option value="Mentor2">Mentor2</option>
+  <option value="Mentor3">Mentor3</option>
+  <option value="Mentor4">Mentor4</option>
+  <option value="Mentor5">Mentor5</option>
+</select>
+<br>
+ -->
+
+
+
+<!-- <script type="text/javascript">
+    function getSelectValue()
+    {
+        var selectedValue = document.getElementById("list").value;
+        console.log(selectedValue);
+    }
+</script>
+
+<script type="text/javascript">
+        document.write(selectedValue);
+      </script> -->
+
+    <div class="row">
+        <h3>Check mail</h3>
+    </div>
+    <br>
+    
+             <table class="table table-striped">
+         <!--   <form method="get" action="/Home/GetMailMentor">
+                <input type="text" name="id" placeholder="MentorName"/>
+                <input type="submit"/>
+            </form>-->
+
+            <tr>   
+                <th>Text</th>  
+                <th>Sender</th>
+                <th>Receiver</th> 
+                <th>Topic</th>  
+            </tr>
+        
+        
+            <!-- <script> 
+              //  var a = document.getElementById("thedropdown");
+              //  alert(a.options[a.selectedIndex].value);
+                var a = "Mentor1"
+            </script> -->
+        
+
+
+        @foreach(var mess in @ViewBag.messagesPrint)        
+        {
+          //  if(@mess.Receiver == @ViewBag.receivername){
+               
+                <tr>
+                    <td> @mess.Text</td>
+                    <td> @mess.Sender</td>
+                    <td> @mess.Receiver</td>
+                    <td> @mess.Topic</td>
+                </tr>
+           // }
+        }
+    </table>
+   
+
+       
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Search Student</title>
+</head>
+<body>
+    <div class="container">
+        <hr>
+    <h1>Get specific student from database by entering his ID in the URL</h1>
+   
+    <br>
+   
+      
+        <hr>
+    <table class="table table-striped">
+
+         <tr>
+                
+                <th>Name</th>
+                <th>Password</th> 
+                <th>Email</th>  
+                <th>Subscribed</th>
+                <th>Role</th>
+                <th>Paymentinfo</th>
+              
+            </tr>
+
+        @foreach(var stud in @ViewBag.stud)        
+        {
+            if(stud.StudentId == @ViewBag.number){
+                <tr>
+                    
+                    <td> @stud.Name</td>
+                    <td> @stud.Password </td> 
+                    <td> @stud.Email</td>
+                    <td> @stud.Subscribed </td> 
+                    <td> @stud.Role</td>
+                    <td> @stud.Paymentinfo </td> 
+                </tr>
+            }
+        }
+    </table>
+    
+    
+    </div>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Student page</title>
+</head>
+<body>
+  
+    <br>
+    <br>
+    <h3>Welcome @ViewBag.UserName </h3>
+<br><br>
+    <!-- Text -->
+    <div class="row">
+        <div class="col-md-6">
+            <p>Payment</p>
+        </div>
+    </div>
+
+    <!-- Buttons -->
+     <!-- Buttons -->
+    <div class="row">
+      
+        <div class="col-md-1">
+           <form class="form-inline" action="/Home/ChangeSubscribedOn">     
+                <button type="submit" class="btn btn-default">Subscribe</button>
+            </form> 
+            
+        </div>
+        <div class="col-md-1">
+            <form class="form-inline" action="/Home/ChangeSubscribedOff">     
+                <button type="submit" class="btn btn-default">Unsubscribe</button>
+            </form> 
+        </div>
+    </div>
+    <br><br>
+
+    <!-- Text -->
+    <div class="row">
+        <div class="col-md-6">
+            <p>Message a mentor</p>
+        </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="row">
+        <div class="col-md-6">
+            <a href="/Home/GetMailStudent"><button type="button" class="btn btn-default">See Messages</button></a>
+            <a href="/Home/SendMailStudent"><button type="button" class="btn btn-default">Send Message</button></a>
+        </div>
+    </div>
+    <br><br>
+   
+
+    <h3>Find a mentor</h3>
+    
+    <div class="row">
+        <div class="col-md-2">
+            <select class="form-control">
+               <option value="one">1. Klasse </option>
+               <option value="two">2. Klasse</option>
+               <option value="three">3. Klasse</option>
+               <option value="four">4. Klasse</option>
+               <option value="five">5. Klasse</option>
+               <option value="five">6. Klasse</option>
+               <option value="five">7. Klasse</option>
+               <option value="five">8. Klasse</option>
+               <option value="five">9. Klasse</option>
+               <option value="five">10. Klasse</option>
+               <option value="five">1.g</option>
+               <option value="five">2.g</option>
+               <option value="five">3.g</option>
+            </select>
+        </div>
+        <div class="col-md-6">
+            <form method="get" action="/Home/StudentPage">      
+               <input type="text" name="id" placeholder="subject"/>
+               <input type="submit"/>
+            </form>
+        </div>
+       
+    </div>
+    
+
+
+
+    <!-- 
+<form class="form-inline">
+  <div class="form-group mb-2">
+  <div class="form-group mx-sm-3 mb-2">
+    <label for="inputPassword2" class="sr-only">Password</label>
+    <input type="password" class="form-control" id="inputPassword2" placeholder="Password">
+  </div>
+  <button type="submit" class="btn btn-primary mb-2">Confirm identity</button>
+</form>
+
+
+
+    -->
+
+<br><br>
+
+        <table class="table table-striped">
+          <tr>     
+            <th>Pic</th>
+            <th>Name</th> 
+            <th>Description</th> 
+            <th>Connect</th>         
+          </tr>
+
+        @foreach(var ment in @ViewBag.ment)        
+        {
+               // Check if mentor is online and if Mentor subject is the same as inputted subject
+               // or if inputted subject is null (just show everybody)
+            //  if(ment.Online == 1 && (@ment.Subjects == @ViewBag.subject || @ViewBag.subject == null)){ 
+                if(ment.Online == 1){  
+                string x=@ment.Imgurl;
+                <tr>
+                    <td><img src=@x alt="image" height="100" width="100"  onmouseover="" style="cursor: pointer;"/></td>
+                    <td> @ment.Name</td>
+                    <td> @ment.Subjects</td>
+                    <td><a href="https://mentoronline.tuteeapp.com/111111111?admin=true&origin=localhost:5000&nick=MentorName">Connect with Mentor</a></td>
+                
+                </tr>
+            }
+        }
+    </table>
+<br><br>
+    <!-- Profile -->
+    <div class="row">
+        <div class="col-md-6">
+             <h3>Profile</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+        <!--  <form method = "get" action="/Home/Mentor"> 
+              <input type="number" required="required" name="ID" placeholder="ID"/>
+              <input type="submit"/>
+          </form>-->
+          <table class="table table-striped">
+              <tr>
+                <th>StudentId</th>
+                <th>Email</th>
+                <th>Name</th>
+                <th>Password</th>
+                <th>Payment Info</th> 
+                <th>Role</th> 
+                <th>Subscribed</th> 
+              </tr>
+
+              @foreach(var stud in @ViewBag.stud)        
+              {
+                if(stud.StudentId == @ViewBag.number)
+                {
+                  
+                  <tr>
+                    <td> @stud.StudentId </td>
+                    <td> @stud.Email </td>
+                    <td> @stud.Name </td>
+                    <td> @stud.Password </td> 
+                    <td> @stud.Paymentinfo </td> 
+                    <td> @stud.Role </td> 
+                    <td> @stud.Subscribed </td> 
+                    
+                  </tr>
+                }
+              }
+         </table>
+       </div>
+    </div>
+
+
+</body>
+</html>

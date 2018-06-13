@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Send mail mentor</title>
+</head>
+
+<body>
+    <h3>Send Message to Student</h3>
+
+    
+    <form method="post" action="/Home/SendMailMentor">
+
+        <!-- Lav dette til dropdown med liste over navne på mentors -->
+        
+        <!-- <input type="text" name="Sender" placeholder="string" />-->
+        <input type="hidden" name="Sender" value="@ViewBag.Username">
+        <br><br>
+        <!-- Lav dette til dropdown med liste over navne på students -->
+        <p>Receiver</p>
+        <input type="text" name="Receiver" placeholder="string" />
+        <br><br>
+        
+        <p>Topic</p>
+        <input type="text" name="Topic" placeholder="string" />
+        <br><br>
+
+        <p>Text</p>
+        <input type="text" name="Text" placeholder="string" />
+        <br><br>
+
+
+        <input type="submit" />
+    </form>
+
+
+</body>
+</html>

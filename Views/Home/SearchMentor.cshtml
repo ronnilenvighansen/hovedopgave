@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Search Mentor</title>
+</head>
+<body>
+    <div class="container">
+        <hr>
+        <h1>Get specific mentor from database by entering his ID in the URL</h1>
+    
+
+    <br>
+     
+        <hr>
+    <table class="table table-striped">
+
+         <tr>
+                
+                <th>Name</th>
+                <th>Password</th> 
+                <th>Email</th>  
+                <th>Subjects</th>
+                <th>Role</th>
+                <th>Online</th>
+                <th>Imgurl</th>
+              
+            </tr>
+
+        @foreach(var ment in @ViewBag.ment)        
+        {
+            if(ment.MentorId == @ViewBag.number){
+                string x=@ment.Imgurl;
+                <tr>
+                    
+                    <td> @ment.Name</td>
+                    <td> @ment.Password </td> 
+                    <td> @ment.Email</td>
+                    <td> @ment.Subjects </td> 
+                    <td> @ment.Role</td>
+                    <td> @ment.Online </td> 
+                    <td><img src=@x alt="image" height="100" width="100"/></td>
+                </tr>
+            }
+        }
+    </table>
+    
+    
+    </div>
+</body>
+</html>

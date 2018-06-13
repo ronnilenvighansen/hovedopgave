@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Update Message</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+
+</head>
+<body>
+    <h1>Update Message</h1>
+
+    <hr>
+
+    <hr>
+    <form method="post" action="/Home/UpdateMessage">
+    
+        <p>ID</p>
+        <input type="number" required="required" name="ID" placeholder="number" />
+        <br><br>
+
+        <p>Text</p>
+        <input type="text" name="Text" placeholder="string" />
+        <br><br>
+
+        <p>Sender</p>
+        <input type="text" name="Sender" placeholder="string" />
+        <br><br>
+        
+        <p>Receiver</p>
+        <input type="text" name="Receiver" placeholder="string" />
+        <br><br>
+
+        <p>Topic</p>
+        <input type="text" name="Topic" placeholder="string" />
+        <br><br>
+
+        <input type="submit" />
+    </form>
+</body>
+</html>
